@@ -4,7 +4,8 @@ import { COMPOSIO_OAUTH_CALLBACK, type Guide } from "../schema";
 export const notionGuide: Guide = {
   slug: "notion",
   name: "Notion",
-  website: "https://www.notion.so",
+  // Notion integrations portal — create a public integration (OAuth) here.
+  website: "https://www.notion.so/my-integrations",
   composioSlug: "NOTION",
   summary:
     "A custom OAuth app for Notion is usually a public integration: create it in Notion’s developer portal, set Composio’s callback URL, then paste Client ID and secret into a Composio auth config. There’s typically no long app-review wait.",

@@ -19,7 +19,7 @@ export function guideToMarkdown(
     `**Selected path:** Path ${resolved.pathIndex + 1} — ${resolved.path.name}  `,
     `**Your hands-on time:** ${resolved.activeEffortAtAGlance} — ${resolved.activeEffort}  `,
     `**Waiting on review:** ${resolved.calendarWaitAtAGlance} — ${resolved.calendarWait}  `,
-    `**Website:** ${guide.website}  `,
+    `**OAuth console:** ${guide.website}  `,
     guide.composioSlug ? `**Composio id:** \`${guide.composioSlug}\`  ` : "",
     "",
     "## Managed OAuth app, or custom OAuth app?",

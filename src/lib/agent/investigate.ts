@@ -80,6 +80,7 @@ Writing style:
 - Always include Composio callback when discussing custom OAuth redirect setup: ${COMPOSIO_OAUTH_CALLBACK}
 - slug: lowercase kebab-case; generated: true; lastReviewed: null
 - composioManagedAvailable: true/false/null from evidence
+- website: MUST be the deep link where a developer creates/registers the custom OAuth app (developer console / credentials / apps portal). Examples: Google → console.cloud.google.com/apis/credentials; Slack → api.slack.com/apps; GitHub → github.com/settings/developers; Notion → notion.so/my-integrations. NEVER the consumer product homepage (gmail.com, slack.com, notion.so marketing site, etc.). If the user pasted a marketing URL, replace it with the OAuth console URL from research.
 
 Composio context: many popular toolkits have a managed OAuth app for prototypes; a custom OAuth app is often needed for production branding, custom permissions, usage limits, or when no managed OAuth app exists.`;
 
@@ -227,7 +228,8 @@ Workflow:
 4) Prefer official provider + Composio docs over blogs; treat community posts as inferred.
 
 After researching, write a dense plain-text research brief covering:
-- Official site / developer portal / OAuth docs URLs (cite what you found)
+- The exact OAuth / developer console URL where you create the custom OAuth app (not the consumer homepage)
+- Official OAuth docs / app review URLs (cite what you found)
 - Whether a Composio managed OAuth app seems available (and evidence)
 - Custom OAuth app registration steps and typical review/wait times
 - Requirements, gotchas, human-only steps
@@ -237,13 +239,14 @@ Do not invent approval SLAs. Prefer official docs.`,
     prompt: `Research how to set up OAuth for:
 
 App: ${input.appQuery}
-Website: ${input.website || "(not provided — search for the official site and developer docs)"}
+Website hint: ${input.website || "(not provided — find the official developer/OAuth console, not the consumer product site)"}
 Extra context: ${input.notes || "none"}
 
 1) Use live web results / web_search for official OAuth / developer portal / app review docs and recent setup friction.
-2) fetch_url the strongest official pages.
-3) Check Composio managed OAuth app directory hints if relevant.
-4) Return a research brief only (not a JSON guide).`,
+2) Identify the console URL where a developer registers the OAuth app / credentials (credentials page, apps portal, integrations page).
+3) fetch_url the strongest official pages.
+4) Check Composio managed OAuth app directory hints if relevant.
+5) Return a research brief only (not a JSON guide). Explicitly include a line: OAuth console URL: <url>`,
   });
 
   logStep(
@@ -268,8 +271,10 @@ Extra context: ${input.notes || "none"}
     prompt: `Using the research brief below, return a complete guide object using managed OAuth app / custom OAuth app terminology.
 
 App: ${input.appQuery}
-Website: ${input.website || "(see research brief)"}
+Website hint from user: ${input.website || "(none — use OAuth console URL from research brief)"}
 Extra context: ${input.notes || "none"}
+
+Set guide.website to the OAuth / developer console deep link from the research brief (where you create the app/credentials). Do not use a consumer homepage.
 
 --- Research brief ---
 ${researchNotes}

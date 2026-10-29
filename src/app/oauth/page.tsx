@@ -20,7 +20,7 @@ export default function OauthHomePage() {
         <h1 className="mt-3 max-w-3xl text-[1.875rem] leading-9 tracking-tight text-foreground sm:text-[2rem] sm:leading-10">
           OAuth guidance for developers building agents
         </h1>
-        <p className="mt-5 max-w-2xl text-base leading-6 text-muted-foreground">
+        <p className="mt-5 text-base leading-6 text-muted-foreground">
           Before users can connect their apps to your AI agent, you will need
           an OAuth app — for authentication, authorisation, and permissions.
           These guides help you choose managed vs custom, estimate setup
@@ -41,8 +41,8 @@ export default function OauthHomePage() {
 
         <div className="mt-8 border border-border bg-card p-5 sm:p-6">
           <p className="text-base leading-6 text-foreground">
-            Your provider is not in the list? Generate a guide using our AI
-            helper
+            Your provider guide is not in the list? Generate a guide using our
+            AI helper
           </p>
           <div className="mt-4">
             <Link

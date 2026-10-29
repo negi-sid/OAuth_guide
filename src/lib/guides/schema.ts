@@ -30,7 +30,12 @@ export const pathForkSchema = z.object({
 export const guideSchema = z.object({
   slug: z.string().describe("URL-safe id, e.g. github"),
   name: z.string(),
-  website: z.string(),
+  // Must be the provider developer/OAuth console URL, not the consumer product homepage.
+  website: z
+    .string()
+    .describe(
+      "Deep link to where a developer creates/registers the custom OAuth app (e.g. Google Cloud credentials, Slack api.slack.com/apps). Never the consumer homepage like gmail.com or slack.com.",
+    ),
   composioSlug: z.string().nullable().describe("Composio toolkit slug if known"),
   summary: z.string().describe("One short paragraph for the developer"),
 

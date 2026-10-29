@@ -4,7 +4,8 @@ import { COMPOSIO_OAUTH_CALLBACK, type Guide } from "../schema";
 export const githubGuide: Guide = {
   slug: "github",
   name: "GitHub",
-  website: "https://github.com",
+  // Developer settings — register a new OAuth App / GitHub App here.
+  website: "https://github.com/settings/developers",
   composioSlug: "GITHUB",
   summary:
     "Creating a custom OAuth app on GitHub is one of the friendlier setups. Register an OAuth App or GitHub App, paste Composio’s callback URL, then add the Client ID and secret to a Composio auth config. There’s usually no long review wait like Google.",

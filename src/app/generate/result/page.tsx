@@ -3,20 +3,14 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { GuideView } from "@/components/guide-view";
-import { ResearchLogPanel } from "@/components/research-log";
 import type { Guide } from "@/lib/guides/schema";
-import {
-  LAST_GUIDE_KEY,
-  readResearchLog,
-  type ResearchLog,
-} from "@/lib/generate-storage";
+import { LAST_GUIDE_KEY } from "@/lib/generate-storage";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-/** Shows the last live-generated guide + research log from sessionStorage. */
+/** Shows the last live-generated guide from sessionStorage. */
 export default function GenerateResultPage() {
   const [guide, setGuide] = useState<Guide | null>(null);
-  const [researchLog, setResearchLog] = useState<ResearchLog | null>(null);
   const [missing, setMissing] = useState(false);
 
   useEffect(() => {
@@ -27,7 +21,6 @@ export default function GenerateResultPage() {
         return;
       }
       setGuide(JSON.parse(raw) as Guide);
-      setResearchLog(readResearchLog());
     } catch {
       setMissing(true);
     }
@@ -65,7 +58,6 @@ export default function GenerateResultPage() {
         >
           Generate another
         </Link>
-        {researchLog ? <ResearchLogPanel log={researchLog} /> : null}
       </div>
       <GuideView guide={guide} />
     </div>

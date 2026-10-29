@@ -4,7 +4,8 @@ import { COMPOSIO_OAUTH_CALLBACK, type Guide } from "../schema";
 export const gmailGuide: Guide = {
   slug: "gmail",
   name: "Gmail",
-  website: "https://gmail.com",
+  // Google Cloud credentials — where you create the OAuth client (not gmail.com).
+  website: "https://console.cloud.google.com/apis/credentials",
   composioSlug: "GMAIL",
   summary:
     "A custom OAuth app for Gmail is where people most often underestimate waiting time. Creating a Google Cloud project and OAuth client can take an hour. Letting many external users connect — especially with sensitive mail permissions — can mean days or weeks of Google review, privacy policy and demo video feedback, and sometimes a security assessment.",

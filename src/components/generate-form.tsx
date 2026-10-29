@@ -108,16 +108,12 @@ export function GenerateForm() {
   }, [status]);
 
   /** Snap the bar to 100%, then navigate once the paint has settled. */
-  async function finishAndNavigate(
-    guide: Guide,
-    steps: string[],
-    query: string,
-  ) {
+  async function finishAndNavigate(guide: Guide) {
     doneRef.current = true;
     setBarPct(100);
     setLoadingMessage("Guide ready — opening…");
-    // Persist guide + research log for the results page (no DB).
-    storeGenerationResult(guide, steps, query);
+    // Persist guide for the results page (no DB).
+    storeGenerationResult(guide);
     await new Promise((r) => setTimeout(r, 350));
     router.push("/generate/result");
   }
@@ -143,7 +139,6 @@ export function GenerateForm() {
 
       const data = (await res.json()) as {
         guide?: Guide;
-        steps?: string[];
         error?: string;
       };
 
@@ -151,7 +146,7 @@ export function GenerateForm() {
         throw new Error(data.error || "Generation failed");
       }
 
-      await finishAndNavigate(data.guide, data.steps ?? [], query);
+      await finishAndNavigate(data.guide);
     } catch (err) {
       doneRef.current = true;
       setStatus("error");

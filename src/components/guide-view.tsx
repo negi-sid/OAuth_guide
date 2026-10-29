@@ -249,22 +249,8 @@ function PathForkNode({
         {fork.description}
       </p>
 
-      {/* Stacked time indicators — replaces the separate effort cards */}
+      {/* Review time above hands-on — stacked */}
       <div className="mt-3 space-y-2 border-t border-border pt-3">
-        <div className="flex items-start gap-2">
-          <Clock3
-            className="mt-0.5 size-3.5 shrink-0 text-muted-foreground"
-            aria-hidden
-          />
-          <div className="min-w-0">
-            <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-              Hands-on time
-            </p>
-            <p className="font-mono text-sm text-foreground">
-              {fork.effortAtAGlance}
-            </p>
-          </div>
-        </div>
         <div className="flex items-start gap-2">
           <Hourglass
             className="mt-0.5 size-3.5 shrink-0 text-muted-foreground"
@@ -276,6 +262,20 @@ function PathForkNode({
             </p>
             <p className="font-mono text-sm text-foreground">
               {fork.calendarWaitAtAGlance}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start gap-2">
+          <Clock3
+            className="mt-0.5 size-3.5 shrink-0 text-muted-foreground"
+            aria-hidden
+          />
+          <div className="min-w-0">
+            <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+              Hands-on time
+            </p>
+            <p className="font-mono text-sm text-foreground">
+              {fork.effortAtAGlance}
             </p>
           </div>
         </div>
@@ -466,7 +466,7 @@ export function GuideView({ guide }: { guide: Guide }) {
             rel="noreferrer"
             className="inline-flex h-9 items-center rounded-lg border border-white/15 px-3 text-sm transition-colors hover:bg-overlay"
           >
-            App website
+            View Website
           </a>
         </div>
       </div>
@@ -552,6 +552,11 @@ export function GuideView({ guide }: { guide: Guide }) {
           onSelect={selectPath}
         />
       </section>
+
+      {/* Signals that requirements / mistakes / checklist below follow the selected path. */}
+      <h2 className="text-xl tracking-tight">
+        Path {resolved.pathIndex + 1}: {resolved.path.name}
+      </h2>
 
       <section className="space-y-3">
         <h2 className="text-xl tracking-tight">What you&apos;ll need</h2>

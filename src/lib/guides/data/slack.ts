@@ -4,7 +4,8 @@ import { COMPOSIO_OAUTH_CALLBACK, type Guide } from "../schema";
 export const slackGuide: Guide = {
   slug: "slack",
   name: "Slack",
-  website: "https://slack.com",
+  // Slack app directory — create/configure the custom OAuth app here.
+  website: "https://api.slack.com/apps",
   composioSlug: "SLACK",
   summary:
     "Creating a custom OAuth app (your Slack app) and getting credentials is usually a same-day job. The trap is distribution: testing only in your workspace ≠ letting customer workspaces install; public distribution is often enough and does not need Marketplace review; Marketplace listing can take weeks.",
