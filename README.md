@@ -43,6 +43,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Product decisions
 
+This section is the short version. For the full phased thought process — problem grounding, ranked research themes with links, the decision pack (D1–D7), and build notes — see [`NOTES.md`](./NOTES.md).
+
 ### Starting from what Composio already has
 
 I grounded the problem in Composio’s existing auth model — not a greenfield OAuth tutorial:
@@ -118,7 +120,7 @@ Experience-scoped only:
 | `src/app/api/generate/` | Live generation API |
 | `src/app/guides/[slug]/` | Curated guide pages |
 | `src/app/generate/` | Live generate + result |
-| `NOTES.md` | Research / decision log |
+| `NOTES.md` | Full research / decision log (phases 0–3) |
 | `ASSIGNMENT.md` | Original brief |
 
 ---
