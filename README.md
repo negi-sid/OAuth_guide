@@ -3,7 +3,7 @@
 A small product for **agent / integration builders** who need end users to connect apps via Composio. It answers the hard part before launch: *Do I stay on Composio’s managed OAuth app, or register a custom OAuth app with the provider — and how long will that take?*
 
 **Live demo:** _add Vercel URL after deploy_  
-**Repo:** _filled after push_
+**Repo:** https://github.com/negi-sid/OAuth_guide
 
 ---
 
