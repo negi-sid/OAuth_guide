@@ -2,7 +2,7 @@
 
 A focused experience for **agent / integration builders** who need end users to connect apps via Composio. Before launch, the hard question is rarely “how do I click OAuth?” — it is: *Can I stay on Composio’s managed OAuth app, or do I need a custom OAuth app with the provider — and how long will that take?*
 
-**Live demo:** https://oauthaiguide-git-main-zia-health.vercel.app  
+**Live demo:** https://oauthaiguide.vercel.app  
 **Repo:** https://github.com/negi-sid/OAuth_guide
 
 ---
