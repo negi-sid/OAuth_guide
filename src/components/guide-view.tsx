@@ -249,22 +249,8 @@ function PathForkNode({
         {fork.description}
       </p>
 
-      {/* Review time above hands-on — stacked */}
+      {/* Dev effort, then provider review — stacked */}
       <div className="mt-3 space-y-2 border-t border-border pt-3">
-        <div className="flex items-start gap-2">
-          <Hourglass
-            className="mt-0.5 size-3.5 shrink-0 text-muted-foreground"
-            aria-hidden
-          />
-          <div className="min-w-0">
-            <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-              Review time
-            </p>
-            <p className="font-mono text-sm text-foreground">
-              {fork.calendarWaitAtAGlance}
-            </p>
-          </div>
-        </div>
         <div className="flex items-start gap-2">
           <Clock3
             className="mt-0.5 size-3.5 shrink-0 text-muted-foreground"
@@ -272,10 +258,24 @@ function PathForkNode({
           />
           <div className="min-w-0">
             <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-              Hands-on time
+              Dev effort
             </p>
             <p className="font-mono text-sm text-foreground">
               {fork.effortAtAGlance}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start gap-2">
+          <Hourglass
+            className="mt-0.5 size-3.5 shrink-0 text-muted-foreground"
+            aria-hidden
+          />
+          <div className="min-w-0">
+            <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+              Provider review
+            </p>
+            <p className="font-mono text-sm text-foreground">
+              {fork.calendarWaitAtAGlance}
             </p>
           </div>
         </div>

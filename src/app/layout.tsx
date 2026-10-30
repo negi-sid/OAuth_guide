@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { JetBrains_Mono } from "next/font/google";
+import { BackNav } from "@/components/back-nav";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col font-sans antialiased">
         <SiteHeader />
+        <BackNav />
         <main className="flex-1">{children}</main>
       </body>
     </html>
